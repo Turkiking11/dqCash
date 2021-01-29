@@ -11,6 +11,8 @@ this year's course.
 Food can be ordered as take out, eat in and delivery. Pressing any of the buttons will take you to a menu page, where
 you can begin to fill out the order.
 
+![Order Options](resources/menu.PNG)
+
 ### Side Menu
 On the left side of the screen, there is a menu bar with several navigation buttons. The first one is quit, which will
 return you to the opening screen and allow you to choose a new order option. This does not clear the order list, it just
@@ -22,11 +24,15 @@ The last button takes the payment, and will bring you to a new screen which is e
 All the buttons in between will change the [item menu](#item-menu) display to their corresponding section. For instance,
 the "Cakes" but will trigger the cake selection to appear.
 
+![Side Bar](resources/sideBar.PNG)
+
 ### Item Menu
 The item menu takes up the center portion of the page screen. It is a notebook style frame, so it can switch dynamically
 between categories without changing the [Side Menu](#side-menu) or the [Receipt](#receipt). This item menu will display
 buttons for each individual item. Once clicked, they will open their corresponding [Option Page](#options-page), where
 specifications can be made
+
+![Item Menu](resources/itemButton.PNG)
 
 ### Receipt
 The receipt is a white frame on the right side of the screen, designed to look like an actual receipt. It displays the
@@ -37,6 +43,8 @@ delete itself, and its appearance on the receipt.
 
 The receipt has an order limit of 12 items to prevent items from exceeding the display of the frame. Adding more items
 will result in a warning pop-up, and they will not be added to the list or total.
+
+![Receipt](resources/receipt.PNG)
 
 ### Options Page
 The options page is a pop-up window that opens when its corresponding item button is clicked. It will display all the
@@ -49,6 +57,8 @@ receipt directly.
 
 The first option is always selected by default to prevent errors in trying to get values from empty variables.
 
+![Options](resources/optionsFrame.PNG)
+
 ### Payment Screen
 The payment screen displays the order total in a larger size, as well as the order list on the right of the screen.
 There is an input field to take the amount tendered. A return button is also displayed in case the cashier must make
@@ -58,13 +68,20 @@ The **_Take Payment_** button must be clicked in order to collect the data from 
 do anything. Once this button is clicked, the order is final. The screen elements will disappear and be replaced with
 instructions and the DQ logo.
 
+![Payment Screen](resources/paymentScreen.PNG)
+
 If the amount tendered is lower than the amount due, the program will assume that the customer is paying by card, and 
-it will display the total with the instructions "enter total into the card machine".
+it will display the total with the instructions "Enter total into the card machine!".
+
+![Card Payment](resources/cardInstructions.PNG)
 
 If the amount tendered is higher than the total, the program will display the change due as well as the least amount of
 coins that make up the change total, using a [recursive algorithm](#recursion). If the recursion depth is exceeded 
-because the amount of change is too large, only the change total will be displayed with the instructions of "return 
-change to customer".
+because the amount of change is too large, only the change total will be displayed with the instructions of "Return 
+change to customer!".
+
+![Cash Instructions Combo](resources/cashInstructionsSmall.PNG)
+![Cash Instructions Stack Exceeded](resources/cashInstructionsLarge.PNG)
 
 Once the program has calculated the change, you must click the **_X_** in order to terminate it, as there is no
 navigation from the final page.
