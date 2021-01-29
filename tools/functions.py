@@ -142,30 +142,32 @@ def return_to_menu(parent, tab):
 # Calculate change
 def change_calc(change, coins, memo):
 
-    if change in memo:
+    # Base cases ---------------------------------------
+
+    if change in memo:  # If the change combo has already been calculated, do not recalculate
         return memo[change]
 
-    elif change == 0:
+    elif change == 0:  # If change is zero, the combo is a sum of 0 of the coins
         return []
 
-    elif change < 0:
+    elif change < 0:  # If the change is negative, there is no possible combination
         return None
 
     shortestCombo = None
 
-    for coin in coins:
+    for coin in coins:  # Check each coin
 
         remainder = change - coin
-        remainderCombo = change_calc(remainder, coins, memo)
+        remainderCombo = change_calc(remainder, coins, memo)  # Return combos with remainder
 
-        if remainderCombo is not None:
+        if remainderCombo is not None:  # If a combo exists for the remainder, then add the coin just used to the combo
             combo = remainderCombo.copy()
             combo.append(coin)
 
-            if shortestCombo is None or len(combo) < len(shortestCombo):
+            if shortestCombo is None or len(combo) < len(shortestCombo):  # If the new combo is shorter, use it
                 shortestCombo = combo
 
-    memo[change] = shortestCombo
+    memo[change] = shortestCombo  # Store the shortest combo in case it needs to be recalculated
 
     return shortestCombo
 
